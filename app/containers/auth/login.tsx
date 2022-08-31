@@ -1,25 +1,21 @@
 import styles from "@/styles/auth/Login.module.css";
-import {
-  Button,
-  Card,
-  Col,
-  Form,
-  Input,
-  Row,
-  Space,
-  Spin,
-  Typography,
-} from "antd";
+import { Button, Card, Col, Form, Input, Row, Spin, Typography } from "antd";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 type LoginContainerProps = {};
 
 export const LoginContainer = (props: LoginContainerProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [form] = Form.useForm();
+  const router = useRouter();
+
+  const IS_REQUIRED = false;
 
   const handlers = {
-    login: (values: any) => {},
+    login: (values: any) => {
+      router.push("/app/dashboard");
+    },
   };
 
   return (
@@ -50,13 +46,15 @@ export const LoginContainer = (props: LoginContainerProps) => {
                     required: "This field is required.",
                   }}
                 >
-                  <Form.Item name="username" rules={[{ required: true }]}>
+                  <Form.Item
+                    name="username"
+                    rules={[{ required: IS_REQUIRED }]}
+                  >
                     <Input placeholder="Username" />
                   </Form.Item>
                   <Form.Item
                     name="password"
-                    rules={[{ required: true }]}
-                    //   noStyle
+                    rules={[{ required: IS_REQUIRED }]}
                   >
                     <Input.Password
                       className={styles["full-width"]}

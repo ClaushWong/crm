@@ -1,17 +1,26 @@
 import "@/styles/globals.less";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Provider } from "react-redux";
+import { store, persistor } from "@/stores/index";
+import { App } from "@/app/index";
+
+import { PersistGate } from "redux-persist/integration/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <Provider store={store}>
       <Head>
         <title>CRM - Test</title>
         <meta name="description" content="CRM - Testing Phase" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />;
-    </>
+      <PersistGate loading={null} persistor={persistor}>
+        <App>
+          <Component {...pageProps} />
+        </App>
+      </PersistGate>
+    </Provider>
   );
 }
 
