@@ -1,9 +1,9 @@
 {
-  "name": "crm",
+  "name": "CRM",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 9001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
