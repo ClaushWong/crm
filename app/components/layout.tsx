@@ -1,8 +1,12 @@
-import "@/styles/globals.less";
-import type { AppProps } from "next/app";
 import Head from "next/head";
 
-function MyApp({ Component, pageProps }: AppProps) {
+type PortalLayoutProps = {
+  children: any;
+};
+
+export const PortalLayout = (props: PortalLayoutProps) => {
+  const { children } = props;
+
   return (
     <>
       <Head>
@@ -10,9 +14,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="description" content="CRM - Testing Phase" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />;
+      {children}
+      <footer>Powered by Next.js (Developed by Claush)</footer>
     </>
   );
-}
-
-export default MyApp;
+};
