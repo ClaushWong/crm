@@ -1,4 +1,4 @@
-import { DashboardOutlined } from "@ant-design/icons";
+import { DashboardOutlined, DoubleRightOutlined } from "@ant-design/icons";
 
 export interface IMenu {
   id: string;
@@ -15,5 +15,11 @@ export const PORTAL_MENU: IMenu[] = [
     name: "Dashboard",
     path: "/app/dashboard",
     icon: <DashboardOutlined />,
+  },
+  {
+    id: "rogue",
+    name: "Rogue",
+    icon: <DoubleRightOutlined />,
+    path: "/app/rogue",
   },
 ];
